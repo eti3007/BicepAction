@@ -57,7 +57,10 @@ jobs:
 
       - name: Deploiement Template Bicep
         run: |
-          # az deployment sub create .... A compléter  cf. https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli
+          az deployment sub validate \
+            --location ${{ env.location }} \
+            --template-file ${{ env.pathFile }}/${{ env.bicepFile }} \
+            --parameters ${{ env.pathFile }}/${{ env.parameterFile }}
  
       - name: Creation d'une Issue sur un failed !
         if: ${{ failure() }}
