@@ -17,8 +17,8 @@ param kindName string
 module rgModule 'Rg.bicep' = {
   name: 'deployRgModule'  
   params: {
-    // à compléter 
-    // à compléter
+    rgName : rgName 
+    location : location
   } 
 }
 
@@ -32,9 +32,12 @@ module storageModule 'Storage.bicep' = {
     kindName: kindName
   }
   dependsOn: [
+    rgModule
     // à compléter. cf https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/resource-declaration?tabs=azure-powershell#dependencies
+    // il faut un dependsOn car le RG est créé depuis un Module !!
   ]
 }
 
 // testez votre code 
 // az deployment sub create --location westeurope --template-file ./Bicep/Exercice_1/Rg_Storage.bicep --parameters ./Bicep/Exercice_1/Rg_Storage.parameters.json
+// az deployment sub validate --location westeurope --template-file ./Rg_Storage.bicep --parameters ./Rg_Storage.parameters.json

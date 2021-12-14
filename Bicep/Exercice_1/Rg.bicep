@@ -3,13 +3,13 @@
 
 // https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-cli
 // https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-to-resource-group?tabs=azure-cli
-targetScope = // à compléter !!
+targetScope = 'subscription'
 
 
 // Définition des Paramètres
 // https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/parameters
-param rgName      // à compléter
-param location   // à compléter
+param rgName string
+param location string
 
 
 // Ressource 
