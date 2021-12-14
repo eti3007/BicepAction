@@ -17,7 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      #- name: Connexion Azure   # Nom du 'Step'
+      - name: Connexion Azure   # Nom du 'Step'
+        uses: Azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
         # utiliser l'action suivante  https://github.com/marketplace/actions/azure-login
         # insérer ici le code pour faire la connexion à la subscription Azure          
            
